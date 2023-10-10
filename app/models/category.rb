@@ -1,6 +1,6 @@
-class Quote < ApplicationRecord
+class Category < ApplicationRecord
 	validates :name, presence: true
-	has_many :categories
+	belongs_to :quote
 
 	scope :ordered, -> { order(id: :desc) }
 end

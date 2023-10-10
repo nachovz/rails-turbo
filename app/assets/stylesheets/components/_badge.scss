@@ -1,0 +1,25 @@
+.badge {
+	display: inline-block;
+	padding: var(--space-xxs) var(--space-m);
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: var(--border-radius);
+
+	&--primary {
+		color: var(--color-white);
+		background-color: var(--color-primary);
+
+		&:hover,
+		&:focus,
+		&:focus-within,
+		&:active {
+			color: var(--color-white);
+			filter: saturate(1.4) brightness(115%);
+		}
+	}
+}
+

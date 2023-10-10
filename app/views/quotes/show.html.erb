@@ -1,8 +1,15 @@
 <main class="container">
+  <div class="header">
+    <h1>Quote</h1>
+  </div>
+
   <%= link_to sanitize("&larr; Back to quotes"), quotes_path %>
   <div class="header">
     <h1>
       <%= @quote.name %>
     </h1>
+  </div>
+  <div class="categories">
+    <%= render @quote.categories %>
   </div>
 </main>
