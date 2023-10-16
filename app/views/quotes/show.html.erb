@@ -1,15 +1,20 @@
-<main class="container">
-  <div class="header">
-    <h1>Quote</h1>
-  </div>
 
-  <%= link_to sanitize("&larr; Back to quotes"), quotes_path %>
+<div class="bg-white rounded shadow px-4 py-3">
   <div class="header">
-    <h1>
+    <h3>
       <%= @quote.name %>
-    </h1>
+    </h3>
   </div>
-  <div class="categories">
-    <%= render @quote.categories %>
+  <div class="flex justify-between">
+    <div class="flex gap-4">
+      <%= render @quote.categories %>
+    </div>
+    <div>
+      Published at: <%= @quote.created_at %> 
+    </div>
   </div>
-</main>
+</div>
+
+<div class="flex justify-end pt-4">
+  <%= link_to sanitize("&larr; Back to quotes"), quotes_path %>
+</div>

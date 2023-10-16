@@ -7,7 +7,7 @@
 
   <%= f.input :name, input_html: { autofocus: true } %>
   <div>
-    <%= f.submit class: "btn btn--secondary" %>
-    <%= link_to "Cancel", quotes_path, class: "btn btn--light" %>
+    <%= f.submit class: "px-3 py-2 rounded-md font-bold border border-solid bg-green-500 text-white hover:text-white hover:bg-green-600 cursor-pointer" %>
+    <%= link_to "Cancel", quotes_path, class: "px-3 py-2 inline-block rounded-md font-bold border border-solid bg-red-500 text-white hover:text-white hover:bg-red-600 " %>
   </div>
 <% end %>

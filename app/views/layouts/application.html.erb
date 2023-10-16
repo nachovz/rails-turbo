@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= yield %>
+    <main class="container">
+    <div class="header">
+      <%= link_to quotes_path do %>
+        <h1>Quotes</h1>
+      <% end %>
+      <%= link_to "New quote", 
+          new_quote_path, 
+          data: { turbo_frame: dom_id(Quote.new)}, 
+          class: "px-3 py-2 font-bold rounded-md border border-solid bg-green-500 text-white hover:text-white hover:bg-green-600" 
+      %>
+    </div>
+      <%= yield %>
+    </main>
   </body>
 </html>
