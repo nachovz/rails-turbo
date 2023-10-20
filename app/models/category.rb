@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
 	validates :name, presence: true
-	belongs_to :quote
+	has_and_belongs_to_many :quotes
 
 	scope :ordered, -> { order(id: :desc) }
 end

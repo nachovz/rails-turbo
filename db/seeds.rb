@@ -7,7 +7,21 @@
 #   Character.create(name: "Luke", movie: movies.first)
 quote1 = Quote.create(name: "The best preparation for tomorrow is doing your best today.")
 quote2 = Quote.create(name: "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.")
+quote3 = Quote.create(name: "Keep your face always toward the sunshine - and shadows will fall behind you.")
+# create 7 quotes
+7.times do
+	Quote.create(name: Faker::Quote.famous_last_words)
+end
 
-category1 = Category.create(name: "Motivational", quote_id: quote1.id)
-category2 = Category.create(name: "Inspirational", quote_id: quote2.id)
-category3 = Category.create(name: "Long", quote_id: quote2.id)
+category1 = Category.create(name: "Short")
+quote1.categories << category1
+
+quote1.categories.create(name: "Motivational")
+
+category2 = Category.create(name: "Inspirational")
+quote2.categories << category2
+
+category3 = Category.create(name: "Long")
+quote2.categories << category3
+
+quote3.categories << category2

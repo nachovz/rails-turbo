@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  quote_id: 1
 
 two:
   name: MyString
-  quote_id: 1

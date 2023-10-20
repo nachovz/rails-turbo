@@ -10,21 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_09_212014) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_145624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "quote_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_quotes", force: :cascade do |t|
+    t.bigint "quote_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_quotes_on_category_id"
+    t.index ["quote_id"], name: "index_categories_quotes_on_quote_id"
   end
 
   create_table "quotes", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "categories_quotes", "categories"
+  add_foreign_key "categories_quotes", "quotes"
 end

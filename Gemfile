@@ -76,3 +76,5 @@ end
 
 gem "simple_form", "~> 5.1.0"
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "faker"
