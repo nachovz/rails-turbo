@@ -8,9 +8,7 @@
                     method: :delete,
                     form: { data: { turbo_frame: "_top" } },
                     class: "px-3 py-2 rounded-md border border-solid bg-red-500 text-white font-bold hover:text-white hover:bg-red-600" %>
-      <%= link_to "Edit",
-                  edit_quote_path(quote),
-                  class: "px-3 py-2 rounded-md border border-solid bg-green-500 text-white font-bold hover:text-white hover:bg-green-600" %>
+      <%= button_link "Edit", edit_quote_path(quote) %>
     </div>
   </div>
 <% end %>
