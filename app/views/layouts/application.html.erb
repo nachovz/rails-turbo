@@ -12,18 +12,28 @@
   </head>
 
   <body>
-    <main class="container">
-    <div class="header">
-      <%= link_to quotes_path do %>
-        <h1>Quotes</h1>
-      <% end %>
-      <%= link_to "New quote", 
-          new_quote_path, 
-          data: { turbo_frame: dom_id(Quote.new)}, 
-          class: "px-3 py-2 font-bold rounded-md border border-solid bg-green-500 text-white hover:text-white hover:bg-green-600" 
-      %>
-    </div>
+    <main class="container relative">
+      <div class="flex gap-2 justify-between mt-4 mb-7">
+        <div class="flex">
+          <%= link_to quotes_path do %>
+            <h1 class="md:hidden">Quotes</h1>
+          <% end %>
+          <div class="hidden md:flex">
+            <%= render "application/menu" %>
+          </div>
+        </div>
+        <%= link_to "New quote", 
+            new_quote_path, 
+            data: { turbo_frame: dom_id(Quote.new)}, 
+            class: "px-3 py-2 font-bold rounded-md border border-solid bg-green-500 text-white hover:text-white hover:bg-green-600" 
+        %>
+      </div>
       <%= yield %>
+      <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t">
+        <div class="flex divide-x items-stretch justify-stretch">
+          <%= render "application/menu" %>
+        </div>
+      </div>
     </main>
   </body>
 </html>
