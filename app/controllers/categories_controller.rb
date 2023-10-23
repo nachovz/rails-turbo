@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
 		if @category.save
 			respond_to do |format|
 				format.html { redirect_to categories_path, notice: "Category was successfully created." }
-				format.turbo_stream
+				# format.turbo_stream
 			end
 		else
 			render :new
@@ -37,7 +37,7 @@ class CategoriesController < ApplicationController
 		@category.destroy
 		respond_to do |format|
 			format.html { redirect_to categories_path, notice: "Category was successfully destroyed." }
-			format.turbo_stream
+			# format.turbo_stream
 		end
 	end
 

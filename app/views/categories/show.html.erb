@@ -1,4 +1,16 @@
-<h3>Category: <%= @category.name %></h3>
-<div class="flex flex-col space-y-4 pt-4">
-	<%= render @category.quotes %>
+<div class="flex flex-col gap-4">
+	<h3>Category:</h3>
+	<%= render @category %>
 </div>
+
+<div class="flex gap-4 pt-3 justify-end">
+	<%= button_to "Delete", category_path(@category), method: :delete, class: "px-3 py-2 rounded-md border border-solid bg-red-500 text-white font-bold hover:text-white hover:bg-red-600", data: { turbo_confirm: "Are you sure?" } %>
+	<%= button_link "Edit", edit_category_path(@category), data: { turbo_method: "edit"} %>
+</div>
+
+<% if @category.quotes.length > 0 %>
+	<h3>Quotes:</h3>
+	<div class="flex flex-col space-y-4 pt-4">
+		<%= render @category.quotes %>
+	</div>
+<% end %>
