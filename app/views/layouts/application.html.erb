@@ -15,9 +15,9 @@
     <main class="container relative pb-14">
       <div class="flex gap-2 justify-between mt-4 mb-7">
         <div class="flex">
-          <%= link_to quotes_path do %>
-            <h1 class="md:hidden">My Quotes</h1>
-          <% end %>
+          <div class="md:hidden">
+            <%= yield :main_title %>
+          </div>
           <div class="hidden md:flex">
             <%= render "application/menu" %>
           </div>

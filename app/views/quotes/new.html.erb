@@ -1,7 +1,8 @@
-
-  <div class="header">
-    <h1>New quote</h1>
-  </div>
+<% content_for :main_title do %>
+  <%= link_to quotes_path do %>
+    <h1>New Quote</h1>
+  <% end %>
+<% end %>
 
   <%= turbo_frame_tag @quote do %>
     <%= render "form", quote: @quote %>

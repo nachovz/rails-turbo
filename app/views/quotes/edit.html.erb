@@ -1,12 +1,12 @@
-
-  
-  <div class="header">
-    <h1>Edit quote</h1>
-  </div>
-
-  <%= turbo_frame_tag @quote do %>
-    <%= render "form", quote: @quote %>
+<% content_for :main_title do %>
+  <%= link_to quotes_path do %>
+    <h1>Edit Quote</h1>
   <% end %>
+<% end %>
+
+<%= turbo_frame_tag @quote do %>
+  <%= render "form", quote: @quote %>
+<% end %>
 <div class="flex justify-end pt-4">
   <%= link_to sanitize("&larr; Back to quotes"), quotes_path %>
 </div>

@@ -1,1 +1,7 @@
+<% content_for :main_title do %>
+  <%= link_to categories_path do %>
+    <h1>New Category</h1>
+  <% end %>
+<% end %>
+
 <%= render "form", category: @category %> 

@@ -1,23 +1,29 @@
-  <div class="bg-white rounded shadow px-4 py-3">
-    <div class="header">
-      <%= turbo_frame_tag @quote do %>
-        <h3>
-          <%= @quote.name %>
-        </h3>
-      <% end %> 
+<% content_for :main_title do %>
+  <%= link_to quotes_path do %>
+    <h1>Quote</h1>
+  <% end %>
+<% end %>
+
+<div class="bg-white rounded shadow px-4 py-3">
+  <div class="header">
+    <%= turbo_frame_tag @quote do %>
+      <h3>
+        <%= @quote.name %>
+      </h3>
+    <% end %> 
+  </div>
+  <div class="">
+    <div class="flex gap-4">
+      <%= render @quote.categories %>
     </div>
-    <div class="">
-      <div class="flex gap-4">
-        <%= render @quote.categories %>
-      </div>
-      <div class="text-right">
-        <p class="text-xs">
-          Published at: <%= @quote.created_at.strftime("%b %e") %> 
-        </p>
-      </div>
+    <div class="text-right">
+      <p class="text-xs">
+        Published at: <%= @quote.created_at.strftime("%b %e") %> 
+      </p>
     </div>
   </div>
-  <div class="flex gap-4 justify-end pt-3">
-    <%= button_to "Delete", quote_path(@quote), method: :delete, form: { data: { turbo_frame: "_top", turbo_confirm: "Are you sure?" } }, class: "px-3 py-2 rounded-md border border-solid bg-red-500 text-white font-bold hover:text-white hover:bg-red-600" %>
-    <%= button_link "Edit", edit_quote_path(@quote), data: { turbo_method: "edit"} %>
-  </div>
+</div>
+<div class="flex gap-4 justify-end pt-3">
+  <%= button_to "Delete", quote_path(@quote), method: :delete, form: { data: { turbo_frame: "_top", turbo_confirm: "Are you sure?" } }, class: "px-3 py-2 rounded-md border border-solid bg-red-500 text-white font-bold hover:text-white hover:bg-red-600" %>
+  <%= button_link "Edit", edit_quote_path(@quote), data: { turbo_method: "edit"} %>
+</div>

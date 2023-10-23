@@ -1,4 +1,8 @@
-
+<% content_for :main_title do %>
+  <%= link_to quotes_path do %>
+    <h1>My Quotes</h1>
+  <% end %>
+<% end %>
 
 <%= turbo_frame_tag Quote.new %>
 
