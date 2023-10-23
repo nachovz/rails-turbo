@@ -16,13 +16,17 @@
       <div class="flex gap-2 justify-between mt-4 mb-7">
         <div class="flex">
           <%= link_to quotes_path do %>
-            <h1 class="md:hidden">Quotes</h1>
+            <h1 class="md:hidden">My Quotes</h1>
           <% end %>
           <div class="hidden md:flex">
             <%= render "application/menu" %>
           </div>
         </div>
-        <%= button_link "New Quote", new_quote_path, turbo_frame: dom_id(Quote.new) %>
+        <% if controller_name != 'categories' %>
+          <%= button_link "New Quote", new_quote_path, turbo_frame: dom_id(Quote.new) %>
+        <% else %>
+          <%= button_link "New Category", new_category_path %>
+        <% end %>
       </div>
       <%= yield %>
       <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t">
