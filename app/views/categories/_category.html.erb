@@ -1,1 +1,6 @@
-<%= button_link category.name, category_path(category), "helper", turbo_frame: "_top" %>
+<div class="relative">
+	<%= button_link category.name, category_path(category), "helper", turbo_frame: "_top" %>
+	<% if category.quotes.length > 0 && current_page?(action: :index) %>
+		<div class="absolute -top-4 -right-2 rounded-full w-5 h-5 flex justify-center text-white items-center bg-orange-400"><span class="text-xs"><%= category.quotes.length %></span></div>
+	<% end %>
+</div>
