@@ -15,13 +15,16 @@ class CategoriesController < ApplicationController
 	def create
 		@category = Category.new(category_params)
 
+		quote = Quote.find(params[:quote_id]) if params[:quote_id].present?
+		@category.quotes << quote if quote.present?
+
 		if @category.save
 			respond_to do |format|
-				format.html { redirect_to categories_path, notice: "Category was successfully created." }
+				format.html { redirect_to params[:previous_request].blank? ? categories_path : params[:previous_request], notice: "Category was successfully created." }
 				# format.turbo_stream
 			end
 		else
-			render :new
+			render :new, status: 422
 		end
 	end
 

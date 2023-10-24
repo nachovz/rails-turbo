@@ -21,7 +21,7 @@ class QuotesController < ApplicationController
 				format.turbo_stream
 			end
 		else
-			render :new
+			render :new, status: 422
 		end
 	end
 
