@@ -16,6 +16,11 @@ class QuotesController < ApplicationController
 		@quote = Quote.new(quote_params)
 
 		if @quote.save
+			
+			category_id = params[:category_ids] if params[:category_ids].present?
+			category = Category.find(category_id)
+			@quote.categories << category
+
 			respond_to do |format|
 				format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
 				format.turbo_stream
@@ -48,6 +53,6 @@ class QuotesController < ApplicationController
 	end
 
 	def quote_params
-		params.require(:quote).permit(:name)
+		params.require(:quote).permit(:name, :category_ids)
 	end
 end
