@@ -9,7 +9,6 @@ module ButtonHelper
 	# Usage:
 	# <%= button_link "Sign Up", new_user_registration_path, "secondary" , "data-turbolinks": false, "data-turbo": false, "data-method": "get", "data-action": "click->modal#open", "data-modal-target": "modal" %>
 	def button_link(link_text, link_path, button_type = "primary", **data)
-		puts data
 		button_class = "px-3 py-2 font-bold text-center rounded-md text-white hover:text-white "
 
 		link_to link_text, link_path, class: button_class + TYPES[button_type], data: data
