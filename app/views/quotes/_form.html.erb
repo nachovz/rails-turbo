@@ -1,4 +1,4 @@
-<%= simple_form_for quote, html: { class: "quote form" } do |f| %>
+<%= simple_form_for quote, html: { class: "quote form" }, data: { turbo_frame: "_top" } do |f| %>
   <% if quote.errors.any? %>
     <div class="error-message">
       <%= quote.errors.full_messages.to_sentence.capitalize %>
@@ -6,9 +6,7 @@
   <% end %>
 
   <%= f.input :name, input_html: { autofocus: true } %>
-  <p> Add Category (optional):</p>
-    <%= f.collection_select :category_ids, Category.all, :id, :name, { :multiple => true } %>
-  
+
   <div>
     <%= f.submit class: "px-3 py-2 rounded-md font-bold border border-solid bg-green-500 text-white hover:text-white hover:bg-green-600 cursor-pointer" %>
     <%= link_to "Cancel", quotes_path, class: "px-3 py-2 inline-block rounded-md font-bold border border-solid bg-red-500 text-white hover:text-white hover:bg-red-600 " %>
