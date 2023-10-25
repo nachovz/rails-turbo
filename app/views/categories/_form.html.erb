@@ -5,9 +5,7 @@
     </div>
   <% end %>
 	<%= f.input :name, input_html: { autofocus: true }%>
-	<%= render "valid_list" %>
-	<%= hidden_field_tag :quote_id, quote %>
-	<%= hidden_field_tag :previous_request, request.referer %>
+	
 	<div class="flex gap-4 pt-3 justify-end">
 		<%= f.submit class: "px-3 py-2 rounded-md font-bold border border-solid bg-green-500 text-white hover:text-white hover:bg-green-600 cursor-pointer" %>
 		<%= link_to "Cancel", url_for(:back), class: "px-3 py-2 inline-block rounded-md font-bold border border-solid bg-red-500 text-white hover:text-white hover:bg-red-600 " %>
