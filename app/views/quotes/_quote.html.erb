@@ -7,6 +7,7 @@
                     quote_path(quote),
                     method: :delete,
                     form: { data: { turbo_frame: "_top" } },
+                    data: { turbo_confirm: "Are you sure?" },
                     class: "px-3 py-2 rounded-md border border-solid bg-red-500 text-white font-bold hover:text-white hover:bg-red-600" %>
       <%= button_link "Edit", edit_quote_path(quote) %>
     </div>
