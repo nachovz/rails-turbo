@@ -42,7 +42,9 @@ class QuotesController < ApplicationController
 	end
 
 	def add_category
-		if params[:quote][:category_id].present?
+		@items = @quote.available_categories.map { |category| SelectComponent::Item.new(category.id, category.name) }
+
+		if request.post? && params[:quote][:category_id].present?
 			category = Category.find(params[:quote][:category_id])
 			@quote.categories << category
 
