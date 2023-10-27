@@ -42,7 +42,6 @@ class QuotesController < ApplicationController
 	end
 
 	def add_category
-		@filtered_categories = Category.ordered - @quote.categories
 
 		if request.post? && params[:quote][:category_id].present?
 			category = Category.find(params[:quote][:category_id])
