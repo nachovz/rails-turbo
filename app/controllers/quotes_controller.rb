@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-	before_action :set_quote, only: [:show, :edit, :update, :destroy, :add_category]
+	before_action :set_quote, only: [:show, :edit, :update, :destroy, :add_category, :remove_category]
 
 	def index
 		@quotes = Quote.ordered
@@ -42,8 +42,7 @@ class QuotesController < ApplicationController
 	end
 
 	def add_category
-
-		if request.post? && params[:quote][:category_id].present?
+		if params[:quote][:category_id].present?
 			category = Category.find(params[:quote][:category_id])
 			@quote.categories << category
 
@@ -56,8 +55,17 @@ class QuotesController < ApplicationController
 				puts "NOT SAVED"
 				render :add_category, status: 422
 			end
-		else
-			render :add_category
+		end
+	end
+
+	def remove_category
+		puts request.inspect
+		@category = Category.find(params[:id])
+		@quote.categories.delete(@category)
+
+		respond_to do |format|
+			format.html { redirect_to @quote, notice: "Category was removed from Quote." }
+			format.turbo_stream
 		end
 	end
 

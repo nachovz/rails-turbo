@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :quotes
-  get "/quotes/:id/add_category", to: "quotes#add_category", as: "add_category"
+  resources :quotes do
+    resources :categories, only: [:destroy, :index]
+  end
   post "/quotes/:id/add_category", to: "quotes#add_category", as: "add_category_post"
 
   namespace :api do

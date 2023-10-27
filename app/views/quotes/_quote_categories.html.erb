@@ -1,8 +1,8 @@
 	<%= turbo_frame_tag "quotes_categories" do %>
-		<div class="flex gap-4 items-center flex-wrap">
-				<%= render quote.categories %>
+		<div class="flex gap-x-4 gap-y-6 items-center flex-wrap">
+				<%= render quote.categories, quote: quote %>
 				<%= turbo_frame_tag "add_category", class: "flex-1" do %>
-					<%= button_link "+", add_category_path %>
+					<%= button_link "+", quote_categories_path(quote) %>
 				<% end %>
 		</div>
 	<% end %>

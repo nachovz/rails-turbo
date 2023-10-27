@@ -3,4 +3,7 @@
 	<% if category.quotes.length > 0 && current_page?(action: :index) %>
 		<div class="absolute -top-4 -right-2 rounded-full w-5 h-5 flex justify-center text-white items-center bg-orange-400"><span class="text-xs"><%= category.quotes.length %></span></div>
 	<% end %>
+	<% if defined?(quote) %>
+		<%= button_to "X", quote_category_path(quote, category), method: :delete, class:"absolute -top-4 -right-2 rounded-full w-6 h-6 flex justify-center text-white items-center bg-red-400" %>
+	<% end %>
 </div>
