@@ -1,4 +1,5 @@
 {
-  "editor.defaultFormatter": "rebornix.ruby",
-  "ruby.format": false
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
+  }
 }
